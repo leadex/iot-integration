@@ -29,7 +29,7 @@ Enable bluetooth interface: `hciconfig hci0 up`. For check interface status type
 
 #### Install Mosquitto
 **Mosquitto** - an open source message broker that implements the MQTT . We are using him for send sensors data from Rapberry PI for our backend services.  
-You can install mosquitto to Raspberry PI or to other machine. If you can simple start all aplications with mosquitto skip this step.  
+You can install mosquitto to Raspberry PI or to other machine. If you do not want to install it on the Raspberry PI, just skip this step.  
 Instruction: https://mosquitto.org/2013/01/mosquitto-debian-repository/  
 `apt-get install mosquitto`  
 `systemctl enable mosquitto`  
