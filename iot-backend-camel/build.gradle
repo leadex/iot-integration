@@ -1,0 +1,46 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.1.RELEASE'
+        camelVersion = '2.18.0'
+        activemqVersion = '5.14.1'
+		
+        projectGroupId = 'ru.leadexsystems.iot'
+        projectArtifactId = 'iot-backend-camel'
+        projectVersion = '1.0.0-SNAPSHOT'
+    }
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = "${projectArtifactId}"
+    version = "${projectVersion}"
+}
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.apache.camel:camel-spring-boot-starter:${camelVersion}")
+    compile("org.apache.camel:camel-mqtt:${camelVersion}")
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.1.0'
+
+    compile 'org.mongodb:mongo-java-driver:3.3.0'
+    compile 'org.mongodb.morphia:morphia:1.2.1'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+	
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Tests
+    testCompile 'junit:junit:4.12'
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "${springBootVersion}"
+}

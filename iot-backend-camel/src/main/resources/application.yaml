@@ -1,0 +1,18 @@
+mongo:
+  host: localhost
+  port: 27017
+  db: iotsensors
+  user:
+  password:
+
+mqtt:
+  host: "tcp://localhost:1883"
+  user: user
+  password: password
+  subscribeTopicNames: "leadex/+/BLE_APP_V1/ssdata/+"
+
+mqtt-back:
+  host: "tcp://localhost:1883"
+  user: user
+  password: password
+  topicPrefix: "leadex/sensors/webui/"

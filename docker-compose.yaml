@@ -1,0 +1,17 @@
+version: '2'
+services:
+    mongodb:
+      image: mongo:3.0.14
+      volumes:
+        - /var/mongodb1:/data/db
+      ports:
+        - "27017:27017"
+    mosquitto:
+      image: toke/mosquitto:latest
+      ports:
+        - "1883:1883"
+        - "9001:9001"
+    webview:
+      build: ./webview/
+      ports:
+        - "8081:80"

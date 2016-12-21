@@ -1,0 +1,8 @@
+.gradle
+.idea
+build
+my-generated-sources
+*.iml
+.kube
+leadex-*
+k8s
